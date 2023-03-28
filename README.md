@@ -1,4 +1,4 @@
-# boiler plate expo app
+# Boiler plate expo app
 
 Boiler plate for an expo app with context authentification handle.
 
