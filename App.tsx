@@ -1,19 +1,18 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { LoginScreen } from "./src/screens/AuthenticationScreens/LoginScreen/LoginScreen";
-import { AuthContext } from "./src/contexts/authentication/AuthContext";
-import { useUser } from "./src/hooks/authentication";
+import { AuthContextProvider } from "./src/contexts/authentication/AuthContext";
 
-const Stack = createNativeStackNavigator();
+import { HomeScreen } from "./src/screens/HomeScreens/HomeScreen";
+
 export default function App() {
-  const { user } = useUser();
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContextProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={LoginScreen} />
-        </Stack.Navigator>
+        <HomeScreen />
       </NavigationContainer>
-    </AuthContext.Provider>
+    </AuthContextProvider>
   );
 }
+
+
+
+
