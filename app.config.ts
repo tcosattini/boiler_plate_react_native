@@ -1,5 +1,5 @@
 module.exports = {
-  name: "directory_notifications",
+  name: "expo_boiler_plate",
   version: "1.0.0",
   extra: {
     API_URL_PREPROD: "https://preprod.acantech-api.fr/",

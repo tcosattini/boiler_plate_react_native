@@ -6,7 +6,6 @@ import { useAuth } from "../../../hooks/authentication/useAuth";
 export const LoginScreen = () => {
   const { loginState, login } = useContext(AuthContext);
 
-  console.log("loginScreen", loginState);
   return (
     <>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
