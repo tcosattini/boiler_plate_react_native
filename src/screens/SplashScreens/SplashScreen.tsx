@@ -1,8 +1,9 @@
 import { Text, View } from "react-native";
+import { splashScreenStyle as style } from "./style/splashScreen.style";
 
 export const SplashScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={style.container}>
       <Text>SplashScreen 👋</Text>
     </View>
   );

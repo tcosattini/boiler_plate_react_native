@@ -6,6 +6,7 @@ import { useState } from "react";
 import { HomeScreen } from "./src/screens/HomeScreens/HomeScreen";
 import { SplashScreen } from "./src/screens/SplashScreens/SplashScreen";
 
+
 export default function App() {
   const [appIsReady, setAppIsReady] = useState<AppState["appIsReady"]>(false);
   const { prepare } = useAppLoading();
