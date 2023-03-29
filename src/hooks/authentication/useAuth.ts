@@ -34,5 +34,9 @@ export const useAuth = () => {
     }
   };
 
-  return { login, loginState };
+  const resetLoginState = () => {
+    setLoginState(loginInitialState);
+  };
+
+  return { login, loginState, resetLoginState };
 };

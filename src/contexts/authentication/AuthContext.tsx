@@ -15,6 +15,7 @@ const initialAuthContext = {
     token: null,
   },
   login: () => {},
+  resetLoginState: () => {},
 };
 
 type Props = {
@@ -24,15 +25,16 @@ type Props = {
 type AuthContext = {
   loginState: LoginState;
   login: (credentials: UserCredentials) => void;
+  resetLoginState: () => void;
 };
 
 export const AuthContext = createContext<AuthContext>(initialAuthContext);
 
 export const AuthContextProvider = ({ children }: Props) => {
-  const { loginState, login } = useAuth();
+  const { loginState, login, resetLoginState } = useAuth();
 
   return (
-    <AuthContext.Provider value={{ loginState, login }}>
+    <AuthContext.Provider value={{ loginState, login, resetLoginState }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import { AuthContext } from "../../contexts/authentication/AuthContext";
 import { useAsyncStorage } from "../../hooks/authentication/useAsyncStorage";
 
 export const WelcomeTemp = () => {
-  const { loginState } = useContext(AuthContext);
+  const { loginState, resetLoginState } = useContext(AuthContext);
   const { value } = useAsyncStorage();
 
   console.log("welcome screen", loginState);
@@ -13,6 +13,7 @@ export const WelcomeTemp = () => {
     <>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Bienvenue ! {value} </Text>
+        <Button onPress={resetLoginState} title="Logout" />
       </View>
     </>
   );
