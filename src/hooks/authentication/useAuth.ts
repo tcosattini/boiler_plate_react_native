@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getLocaleLoginErrorMessage } from "../../locales/error/loginError/error.locale";
 import { Auth } from "../../services/authentication/authenticationEndpoints";
 import { LoginState, UserCredentials } from "./types";
 import { useAsyncStorage } from "./useAsyncStorage";
@@ -25,10 +26,14 @@ export const useAuth = () => {
         token: value,
       });
     } catch (e: any) {
+      console.log(e?.toJSON().code);
       setLoginState({
         isLoading: false,
         isSignedIn: false,
-        error: e?.toJSON().code,
+        error: getLocaleLoginErrorMessage({
+          error: e?.toJSON().code,
+          localeCode: "fr",
+        }),
         token: null,
       });
     }

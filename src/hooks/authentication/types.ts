@@ -13,11 +13,11 @@ export interface UserCredentials {
 export interface LoginState {
   isLoading: boolean;
   user?: null | User;
-  error: null | LoginError;
+  error: any;
   isSignedIn: boolean;
   token: null | string;
 }
 
-export enum LoginError {
-  ERR_BAD_REQUEST = "Identifiants invalides",
-}
+export type LoginError = {
+  error: "ERR_BAD_REQUEST" | "ERR_NETWORK";
+};

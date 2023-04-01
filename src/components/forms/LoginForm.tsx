@@ -1,11 +1,12 @@
 import { Formik } from "formik";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Button, GestureResponderEvent, TextInput, View } from "react-native";
 import { AuthContext } from "../../contexts/authentication/AuthContext";
+import { getLocaleLoginErrorMessage } from "../../locales/error/loginError/error.locale";
 import { FormError } from "./formError/FormError";
 
 export const LoginForm = () => {
-  const { login, loginState, resetLoginState } = useContext(AuthContext);
+  const { login, loginState } = useContext(AuthContext);
 
   const initialValues = {
     username: "",
@@ -14,7 +15,7 @@ export const LoginForm = () => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={(values) => login(values)}>
-      {({ handleChange, handleBlur, handleSubmit, values, dirty, status }) => (
+      {({ handleChange, handleBlur, handleSubmit, values, dirty }) => (
         <View>
           <TextInput
             onChangeText={handleChange("username")}
@@ -28,8 +29,8 @@ export const LoginForm = () => {
             value={values.password}
             secureTextEntry={true}
           />
-          {dirty && <FormError errorMessage={loginState?.error} />}
 
+          <FormError errorMessage={loginState?.error} />
           <Button
             onPress={
               handleSubmit as (
